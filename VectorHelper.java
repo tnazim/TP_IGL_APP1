@@ -1,9 +1,10 @@
 package com.company;
 import java.util.Random;
+import com.company.DifferentSizeException;
 
 public class VectorHelper {
-    int size;
-    int vector[];
+    private int size;
+    private int vector[];
 
     /**Create and fill the vector with random numbers**/
     public VectorHelper(int size){
@@ -36,13 +37,45 @@ public class VectorHelper {
         }
     }
 
+    /**Sum this vector with another vector v2, if size is differnet an exception is thrown.**/
+    public void sum(VectorHelper v2) throws DifferentSizeException
+    {
+        if (this.size!=v2.getSize())
+        {
+            throw new DifferentSizeException();
+        }
+        else
+        {
+            for (int i=0;i<this.size;i++)
+            {
+                this.vector[i]+=v2.getVector()[i];
+            }
+        }
+    }
+
+
+    /**Prints the vector.**/
+    public void printVector()
+    {
+        for (int i=0;i<this.size;i++)
+        {
+            System.out.print(this.vector[i]);
+            if (i!=this.size-1)
+            {
+                System.out.print("::");
+            }
+        }
+    }
+
     /**Returns the vector**/
     public int[] getVector(){
         return this.vector;
     }
-    
+
     /**Returns the size**/
     public int getSize() {
         return size;
     }
+
+
 }
