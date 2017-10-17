@@ -53,6 +53,17 @@ public class VectorHelper {
         }
     }
 
+    /**Reverse the elements of the vector**/
+    public void reverseVector()
+    {
+        int tmpVec[]=new int[size];
+        for (int i=0;i<size;i++)
+        {
+            tmpVec[size-1-i]=this.vector[i];
+        }
+        this.vector=tmpVec;
+    }
+
 
     /**Prints the vector.**/
     public void printVector()
@@ -76,6 +87,4 @@ public class VectorHelper {
     public int getSize() {
         return size;
     }
-
-
 }
