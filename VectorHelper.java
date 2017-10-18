@@ -88,3 +88,33 @@ public class VectorHelper {
         return size;
     }
 }
+
+
+/**The MIN and the MAX of the vector**/
+public int[] min_max(){
+    int tmptab[]=new int[2];
+    int n=this.size;
+    tmptab[0]= vector[0];
+    tmptab[1]= vector[0];
+    for (int i=1;i<n;i++)
+    {
+        if ((this.vector[i]<tmptab[0]){
+            tmptab[0]=this.vector[i];
+        }
+        if (this.vector[i]>tmptab[1]){
+            tmptab[1]=this.vector[i];
+        }
+    }
+    return tmptab;
+}
+
+ /**Application of a formula for all the elements of the vector**/
+ /** multiplication by 2 **/
+
+ public void formula()
+ {
+     for (int i=0; i<size; i++){
+         this.vector[i]*=2;
+     }
+
+ }
