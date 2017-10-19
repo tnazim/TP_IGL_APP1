@@ -17,7 +17,7 @@ public class VectorHelper {
     }
 
     /**Bubble sort function**/
-    public void sort(){
+    public void sortVector(){
         int n=this.size;
         int swapVar;
         boolean repeat = true;
