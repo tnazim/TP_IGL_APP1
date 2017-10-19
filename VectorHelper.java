@@ -50,7 +50,7 @@ public class VectorHelper {
     /**
      * Cette fonction permet de trier un vecteur.
      */
-    public void sort(){
+    public void sortVec(){
         int n=this.size;
         int swapVar;
         boolean repeat = true;
