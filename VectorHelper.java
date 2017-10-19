@@ -156,3 +156,38 @@ public class VectorHelper {
         return size;
     }
 }
+ /**Cette methode permet de calculer le min et le max d'un tableau
+     *
+     * @return un tableau "tmptab"de deux éléments le 1er element est
+     * le minimum et le 2eme est le maximum
+     */
+    public int[] min_max(){
+    int tmptab[]=new int[2];
+    int n=this.size;
+    tmptab[0]= vector[0];
+    tmptab[1]= vector[0];
+    for (int i=1;i<n;i++)
+    {
+        if ((this.vector[i]<tmptab[0]){
+            tmptab[0]=this.vector[i];
+        }
+        if (this.vector[i]>tmptab[1]){
+            tmptab[1]=this.vector[i];
+        }
+    }
+    return tmptab;
+}
+
+    /**Cette methode permet de calculer le double de chaque elements du vecteur "vector"
+     *
+     */
+
+ public void formula()
+ {
+     int tabform[]=new int[size];
+     for (int i=0; i<size; i++){
+         tabform[i]=tabform[i]*2;
+     }
+     this.vector=tabform;
+ }
+
