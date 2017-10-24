@@ -1,5 +1,7 @@
 package com.company;
 import java.util.Random;
+import java.util.Vector;
+
 import com.company.DifferentSizeException;
 
 /**
@@ -13,7 +15,7 @@ import com.company.DifferentSizeException;
  *</p>
  *
  *
- * @author TETAHTEZKRATT ;
+ * @author TETAH&TEZKRATT ;
  * @version 1.0
  */
 
@@ -45,12 +47,24 @@ public class VectorHelper {
         }
     }
 
+    /*Constructeur du vecteur pour le test*/
+
+    /**
+     * Permet de construire le vecteur de test.
+     */
+    public VectorHelper()
+    {
+        final int tab[] = {5,6,1,3,12,21,8,15,0,7};
+        this.size=10;
+        this.vector=tab;
+    }
+
     /*Bubble sort function*/
 
     /**
      * Cette fonction permet de trier un vecteur.
      */
-    public void sortVec(){
+    public void sort(){
         int n=this.size;
         int swapVar;
         boolean repeat = true;
@@ -77,9 +91,9 @@ public class VectorHelper {
      * @param v2 Le deuxième pour le sommer avec le premier.
      * @throws DifferentSizeException En cas ou les deux vecteurs n'ont pas la même taille.
      */
-    public void sum(VectorHelper v2) throws DifferentSizeException
+    public void sum(int[] v2) throws DifferentSizeException
     {
-        if (this.size!=v2.getSize())
+        if (this.size!=v2.length)
         {
             throw new DifferentSizeException();
         }
@@ -87,7 +101,7 @@ public class VectorHelper {
         {
             for (int i=0;i<this.size;i++)
             {
-                this.vector[i]+=v2.getVector()[i];
+                this.vector[i]+=v2[i];
             }
         }
     }
@@ -138,6 +152,31 @@ public class VectorHelper {
 
     /*Returns the vector.*/
 
+    /*Permet de calculer le minimum et le max dans un tableau.*/
+
+    /**
+     * Cette fonction permet de calculer le Minimum et le maximum d'un vecteur.
+     * @return Renvoie un vecteur de deux éléments, le premier est le min et le second est le max.
+     */
+
+    public int[] minMax()
+    {
+        int min=this.vector[0],max=this.vector[0];
+        for (int i=0;i<this.vector.length;i++)
+        {
+            if (min>this.vector[i])
+            {
+                min=this.vector[i];
+            }
+            if (max<this.vector[i])
+            {
+                max=this.vector[i];
+            }
+        }
+        int returnedValue[] = {min,max};
+        return returnedValue;
+    }
+
     /**
      * Cette méthode permet de renvoyer le vecteur.
      * @return Le vecteur associé à l'objet crée.
@@ -156,36 +195,3 @@ public class VectorHelper {
         return size;
     }
 }
- /**Cette methode permet de calculer le min et le max d'un tableau
-     *
-     * @return un tableau "tmptab"de deux éléments le 1er element est
-     * le minimum et le 2eme est le maximum
-     */
-    public int[] min_max(){
-    int tmptab[]=new int[2];
-    int n=this.size;
-    tmptab[0]= vector[0];
-    tmptab[1]= vector[0];
-    for (int i=1;i<n;i++)
-    {
-        if ((this.vector[i]<tmptab[0]){
-            tmptab[0]=this.vector[i];
-        }
-        if (this.vector[i]>tmptab[1]){
-            tmptab[1]=this.vector[i];
-        }
-    }
-    return tmptab;
-}
-    /**Cette methode permet de calculer le double de chaque elements du vecteur "vector"
-     *
-     */
-
- public void formula()
- {
-     int tabform[]=new int[size];
-     for (int i=0; i<size; i++){
-         tabform[i]=tabform[i]*2;
-     }
-     this.vector=tabform;
- }
