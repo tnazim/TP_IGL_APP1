@@ -1,12 +1,43 @@
 package com.company;
 import java.util.Random;
+import java.util.Vector;
+
 import com.company.DifferentSizeException;
 
+/**
+ * <b>VectorHelper est la classe qui permet de faire quelques opérations sur les vecteurs.</b>
+ *<p>
+ * La classe à comme attribut la taille du vecteur et le vecteur lui même.
+ * <ul>
+ * <li>size : Un entier naturel non nul qui représente la taille.</li>
+ * <li>vector : Un vecteur d'entiers.</li>
+ * </ul>
+ *</p>
+ *
+ *
+ * @author TETAH&TEZKRATT ;
+ * @version 1.0
+ */
+
 public class VectorHelper {
+    /**
+     * La taille du vecteur, non nul.
+     * @see VectorHelper#getSize()
+     * @see VectorHelper#VectorHelper(int)
+     *
+     */
     private int size;
+
+    /**
+     * Le vecteur d'entiers.
+     */
     private int vector[];
 
-    /**Create and fill the vector with random numbers**/
+    /*Create and fill the vector with random numbers*/
+    /**
+     * Permet de créer un nouveau vecteur dont on spécifie la taille.
+     * @param size La taille du vecteur.
+     */
     public VectorHelper(int size){
         this.size=size;
         this.vector = new int[size];
@@ -16,7 +47,23 @@ public class VectorHelper {
         }
     }
 
-    /**Bubble sort function**/
+    /*Constructeur du vecteur pour le test*/
+
+    /**
+     * Permet de construire le vecteur de test.
+     */
+    public VectorHelper()
+    {
+        final int tab[] = {5,6,1,3,12,21,8,15,0,7};
+        this.size=10;
+        this.vector=tab;
+    }
+
+    /*Bubble sort function*/
+
+    /**
+     * Cette fonction permet de trier un vecteur.
+     */
     public void sort(){
         int n=this.size;
         int swapVar;
@@ -37,10 +84,16 @@ public class VectorHelper {
         }
     }
 
-    /**Sum this vector with another vector v2, if size is differnet an exception is thrown.**/
-    public void sum(VectorHelper v2) throws DifferentSizeException
+    /*Sum this vector with another vector v2, if size is differnet an exception is thrown.*/
+
+    /**
+     * Cette méthode permet de sommer un vecteur avec un autre à condition qu'il soit de même taille.
+     * @param v2 Le deuxième pour le sommer avec le premier.
+     * @throws DifferentSizeException En cas ou les deux vecteurs n'ont pas la même taille.
+     */
+    public void sum(int[] v2) throws DifferentSizeException
     {
-        if (this.size!=v2.getSize())
+        if (this.size!=v2.length)
         {
             throw new DifferentSizeException();
         }
@@ -48,12 +101,16 @@ public class VectorHelper {
         {
             for (int i=0;i<this.size;i++)
             {
-                this.vector[i]+=v2.getVector()[i];
+                this.vector[i]+=v2[i];
             }
         }
     }
 
-    /**Reverse the elements of the vector**/
+    /*Reverse the elements of the vector*/
+
+    /**
+     * Cette méthode permet d'inverser les éléments du vecteur.
+     */
     public void reverseVector()
     {
         int tmpVec[]=new int[size];
@@ -65,7 +122,11 @@ public class VectorHelper {
     }
 
 
-    /**Prints the vector.**/
+    /*Prints the vector.*/
+
+    /**
+     * Cette méthode permet d'afficher les éléments du vecteur.
+     */
     public void printVector()
     {
         for (int i=0;i<this.size;i++)
@@ -78,43 +139,59 @@ public class VectorHelper {
         }
     }
 
-    /**Returns the vector**/
+    /**
+     * Cette fontction permet multiplier tout les éléments du tableau par 2
+     */
+    public void formula()
+    {
+        for (int i=0; i<this.size;i++)
+        {
+            this.vector[i]*=2;
+        }
+    }
+
+    /*Returns the vector.*/
+
+    /*Permet de calculer le minimum et le max dans un tableau.*/
+
+    /**
+     * Cette fonction permet de calculer le Minimum et le maximum d'un vecteur.
+     * @return Renvoie un vecteur de deux éléments, le premier est le min et le second est le max.
+     */
+
+    public int[] minMax()
+    {
+        int min=this.vector[0],max=this.vector[0];
+        for (int i=0;i<this.vector.length;i++)
+        {
+            if (min>this.vector[i])
+            {
+                min=this.vector[i];
+            }
+            if (max<this.vector[i])
+            {
+                max=this.vector[i];
+            }
+        }
+        int returnedValue[] = {min,max};
+        return returnedValue;
+    }
+
+    /**
+     * Cette méthode permet de renvoyer le vecteur.
+     * @return Le vecteur associé à l'objet crée.
+     */
     public int[] getVector(){
         return this.vector;
     }
 
-    /**Returns the size**/
+    /*Returns the size.*/
+
+    /**
+     * Cette méthode permet de renvoyer la taille du tableau.
+     * @return La taille du tableau associé à l'objet.
+     */
     public int getSize() {
         return size;
     }
 }
-
-
-/**The MIN and the MAX of the vector**/
-public int[] min_max(){
-    int tmptab[]=new int[2];
-    int n=this.size;
-    tmptab[0]= vector[0];
-    tmptab[1]= vector[0];
-    for (int i=1;i<n;i++)
-    {
-        if ((this.vector[i]<tmptab[0]){
-            tmptab[0]=this.vector[i];
-        }
-        if (this.vector[i]>tmptab[1]){
-            tmptab[1]=this.vector[i];
-        }
-    }
-    return tmptab;
-}
-
- /**Application of a formula for all the elements of the vector**/
- /** multiplication by 2 **/
-
- public void formula()
- {
-     for (int i=0; i<size; i++){
-         this.vector[i]*=2;
-     }
-
- }
