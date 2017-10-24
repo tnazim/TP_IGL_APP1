@@ -50,7 +50,7 @@ public class VectorHelper {
     /**
      * Cette fonction permet de trier un vecteur.
      */
-    public void sort(){
+    public void sortVec(){
         int n=this.size;
         int swapVar;
         boolean repeat = true;
@@ -177,7 +177,6 @@ public class VectorHelper {
     }
     return tmptab;
 }
-
     /**Cette methode permet de calculer le double de chaque elements du vecteur "vector"
      *
      */
@@ -190,4 +189,3 @@ public class VectorHelper {
      }
      this.vector=tabform;
  }
-
